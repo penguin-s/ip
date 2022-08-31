@@ -33,7 +33,7 @@ public class Duke {
                             System.out.println((i + 1) + ". " + taskList.get(i).description);
                         }
                         System.out.println("____________________________________________________________\n");
-                    } else if (taskList.isEmpty()) {
+                    } else{
                         System.out.println("____________________________________________________________\n"
                                 + "You have no tasks.\n"
                                 + "____________________________________________________________\n");
