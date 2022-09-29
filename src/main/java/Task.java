@@ -23,8 +23,14 @@ public class Task {
         System.out.println("____________________________________________________________\n"
                 + "\n"
                 + "added: " + description
+                + "\n");
+    }
+    public void deleteMessage(){
+        System.out.println("____________________________________________________________\n"
                 + "\n"
-                + "____________________________________________________________\n");
+                + "Noted. I've removed this task:"
+                + "\n"
+                + this);
     }
 
     public void setMarked() {

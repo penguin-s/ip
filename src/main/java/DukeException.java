@@ -26,4 +26,9 @@ public class DukeException {
                 + "You have no tasks.\n"
                 + border);
     }
+    public static void taskNotFound(){
+        System.out.println(border
+                + "OOPS!! I'm sorry, but that task does not exist."
+                + border);
+    }
 }
