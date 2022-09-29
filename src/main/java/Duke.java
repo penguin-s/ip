@@ -43,12 +43,6 @@ public class Duke {
 
     public static void main(String[] args) {
         ArrayList<Task> taskList = new ArrayList<>();
-        // Fillers
-        taskList.add(new Todo("read book"));
-        taskList.add(new Deadline("return book", "June 6th"));
-        taskList.add(new Event("project meeting", "Aug 6th 2-4pm"));
-        taskList.add(new Todo("join sports club"));
-        taskList.get(0).isMarked = true;
 
         String helloMessage = border
                 + " Hello! I'm Duke\n"
