@@ -1,3 +1,5 @@
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -114,15 +116,16 @@ public class Duke {
                         taskCountMessage(taskList);
                     }
                     break;
-                case "delete":
+                case "save":
                     try{
-                        Task selectedTask = getTaskFromNumber(readInput, taskList);
-                        selectedTask.deleteMessage();
-                        taskList.remove(selectedTask);
-                        taskCountMessage(taskList);
+                        FileOutputStream fos = new FileOutputStream("duke_data");
+                        ObjectOutputStream oos = new ObjectOutputStream(fos);
+                        oos.writeObject(taskList);
+                        oos.flush();
+                        oos.close();
                     }
                     catch(Exception e){
-                        DukeException.taskNotFound();
+                        e.printStackTrace();
                     }
                     break;
                 default:
