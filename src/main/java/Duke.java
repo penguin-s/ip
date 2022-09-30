@@ -6,17 +6,33 @@ import java.util.Scanner;
 public class Duke {
     public static String border = "____________________________________________________________\n";
 
+    /**
+     * Extracts task from number in task list
+     * @param readInput
+     * @param taskList
+     * @return Task task
+     */
     public static Task getTaskFromNumber(String readInput, ArrayList<Task> taskList) {
         String[] splitString = readInput.split("\\s+");
         int taskNumber = Integer.parseInt(splitString[1]) - 1;
         return taskList.get(taskNumber);
     }
 
+    /**
+     * Reads command name from user input by parsing the input
+     * @param readInput
+     * @return String Command
+     */
     public static String readCommand(String readInput) {
         String[] splitString = readInput.split("\\s+");
         return splitString[0];
     }
 
+    /**
+     * Extracts task name from user input by parsing the input
+     * @param readInput
+     * @return String taskName
+     */
     public static String getTaskNameFromInput(String readInput) {
         String[] splitString = readInput.split("\\s+");
         String taskType = splitString[0];
@@ -31,16 +47,40 @@ public class Duke {
         }
     }
 
+    /**
+     * Extracts date and/or time of task from user input by parsing the input
+     * @param readInput
+     * @return String dateTime
+     */
     public static String findTaskDateTime(String readInput) {
         String afterSlash = readInput.substring(readInput.indexOf("/"));
         String[] splitString = afterSlash.split("\\s+");
         return afterSlash.substring(splitString[0].length() + 1);
     }
 
+    /**
+     * Counts the number of tasks in the given task list and prints it out
+     * @param taskList
+     */
     public static void taskCountMessage(ArrayList<Task> taskList) {
         System.out.println("Now you have " + taskList.size() + " tasks in the list."
                 + "\n"
                 + border);
+    }
+
+    /**
+     * Prints out tasks in the task list in numbered sequence
+     * @param taskList
+     */
+    public static void listTasks(ArrayList<Task> taskList) {
+        if (!taskList.isEmpty()) {
+            for (int i = 0; i < taskList.size(); i++) {
+                System.out.println((i + 1) + ". " + taskList.get(i).toString());
+            }
+            System.out.println(border);
+        } else {
+            DukeException.noTasksInList();
+        }
     }
 
     public static void main(String[] args) {

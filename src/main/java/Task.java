@@ -11,10 +11,18 @@ public class Task {
         this.isMarked = isMarked;
     }
 
+    /**
+     * Returns marked status of task as an icon (either X or blank)
+     * @return String statusIcon
+     */
     public String getStatusIcon() {
         return (isMarked ? "X" : " ");
     }
 
+    /**
+     * Returns a string of the marked status of a task and its description
+     * @return
+     */
     public String toString() {
         return "[" + getStatusIcon() + "] " + description;
     }
