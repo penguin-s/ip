@@ -1,3 +1,5 @@
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -41,8 +43,25 @@ public class Duke {
                 + border);
     }
 
+    public static void listTasks(ArrayList<Task> taskList) {
+        if (!taskList.isEmpty()) {
+            for (int i = 0; i < taskList.size(); i++) {
+                System.out.println((i + 1) + ". " + taskList.get(i).toString());
+            }
+            System.out.println(border);
+        } else {
+            DukeException.noTasksInList();
+        }
+    }
+
     public static void main(String[] args) {
         ArrayList<Task> taskList = new ArrayList<>();
+        // Fillers
+//        taskList.add(new Todo("read book"));
+//        taskList.add(new Deadline("return book", "June 6th"));
+//        taskList.add(new Event("project meeting", "Aug 6th 2-4pm"));
+//        taskList.add(new Todo("join sports club"));
+//        taskList.get(0).isMarked = true;
 
         String helloMessage = border
                 + " Hello! I'm Duke\n"
@@ -66,15 +85,7 @@ public class Duke {
                     isExit = true;
                     break;
                 case "list":
-                    if (!taskList.isEmpty()) {
-                        System.out.println(border);
-                        for (int i = 0; i < taskList.size(); i++) {
-                            System.out.println((i + 1) + ". " + taskList.get(i).toString());
-                        }
-                        System.out.println(border);
-                    } else {
-                        DukeException.noTasksInList();
-                    }
+                    listTasks(taskList);
                     break;
                 case "mark":
                     getTaskFromNumber(readInput, taskList).setMarked();
@@ -115,8 +126,38 @@ public class Duke {
                         taskList.remove(selectedTask);
                         taskCountMessage(taskList);
                     }
-                    catch(Exception e){
+                    catch(Exception e) {
                         DukeException.taskNotFound();
+                    }
+                    break;
+                case "save":
+                    try{
+                        FileOutputStream fos = new FileOutputStream("duke_data");
+                        ObjectOutputStream oos = new ObjectOutputStream(fos);
+                        oos.writeObject(taskList);
+                        oos.flush();
+                        oos.close();
+                    }
+                    catch(Exception e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case "find":
+                    ArrayList<Task> foundTasks = new ArrayList<>();
+                    if(getTaskNameFromInput(readInput) != null){
+                        for(Task task : taskList){
+                            if(task.description.equals(getTaskNameFromInput(readInput))){
+                                foundTasks.add(task);
+                            }
+                        }
+                        if(foundTasks.size() != 0){
+                            System.out.println(border);
+                            System.out.println("Here are the matching tasks in your list:");
+                            listTasks(foundTasks);
+                        }
+                        else{
+                            DukeException.taskNotFound();
+                        }
                     }
                     break;
                 default:
