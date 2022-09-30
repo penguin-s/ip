@@ -46,4 +46,10 @@ public class DukeException {
                 + "OOPS!! I'm sorry, but that task does not exist."
                 + border);
     }
+
+    public static void saveError(){
+        System.out.println(border
+                + "OOPS!! I'm sorry, but there was a problem saving your tasks."
+                + border);
+    }
 }

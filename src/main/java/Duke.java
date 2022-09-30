@@ -110,6 +110,7 @@ public class Duke {
                 case "list":
                     if (!taskList.isEmpty()) {
                         System.out.println(border);
+                        System.out.println("Here are the tasks in your list:");
                         for (int i = 0; i < taskList.size(); i++) {
                             System.out.println((i + 1) + ". " + taskList.get(i).toString());
                         }
@@ -157,9 +158,13 @@ public class Duke {
                         oos.writeObject(taskList);
                         oos.flush();
                         oos.close();
+                        System.out.println(border);
+                        System.out.println("Your tasks have been saved.");
+                        System.out.println(border);
                     }
                     catch(Exception e){
                         e.printStackTrace();
+                        DukeException.saveError();
                     }
                     break;
                 case "delete":
