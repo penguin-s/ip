@@ -1,5 +1,3 @@
-import java.io.FileOutputStream;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -108,18 +106,6 @@ public class Duke {
                         taskList.add(newEvent);
                         newEvent.taskMessage();
                         taskCountMessage(taskList);
-                    }
-                    break;
-                case "save":
-                    try{
-                        FileOutputStream fos = new FileOutputStream("duke_data");
-                        ObjectOutputStream oos = new ObjectOutputStream(fos);
-                        oos.writeObject(taskList);
-                        oos.flush();
-                        oos.close();
-                    }
-                    catch(Exception e){
-                        e.printStackTrace();
                     }
                     break;
                 case "delete":
