@@ -19,12 +19,19 @@ public class Task {
         return "[" + getStatusIcon() + "] " + description;
     }
 
+    /**
+     * Prints out a message when the user adds a task to the task list
+     */
     public void taskMessage() {
         System.out.println("____________________________________________________________\n"
                 + "\n"
                 + "added: " + description
                 + "\n");
     }
+
+    /**
+     * Prints out a message when the user removes a task from the task list
+     */
     public void deleteMessage(){
         System.out.println("____________________________________________________________\n"
                 + "\n"
@@ -33,6 +40,9 @@ public class Task {
                 + this);
     }
 
+    /**
+     * Sets the task to Marked and prints out a message saying that the task has been marked
+     */
     public void setMarked() {
         isMarked = true;
         System.out.println("____________________________________________________________\n"
@@ -42,6 +52,9 @@ public class Task {
                 + "____________________________________________________________\n");
     }
 
+    /**
+     * Sets the task to Unmarked and prints out a message saying that the task has been unmarked
+     */
     public void setUnmarked() {
         isMarked = false;
         System.out.println("____________________________________________________________\n"

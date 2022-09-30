@@ -12,6 +12,9 @@ public class Event extends Task {
         return "[E]" + super.toString() + " (at: " + at + ")";
     }
 
+    /**
+     * Prints out a message when the user adds an event to the task list
+     */
     @Override
     public void taskMessage() {
         System.out.println("____________________________________________________________\n"

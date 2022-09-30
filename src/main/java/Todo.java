@@ -9,6 +9,9 @@ public class Todo extends Task {
         return "[T]" + super.toString();
     }
 
+    /**
+     * Prints out a message when the user adds a todo to the task list
+     */
     @Override
     public void taskMessage() {
         System.out.println("____________________________________________________________\n"
