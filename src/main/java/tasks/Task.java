@@ -1,3 +1,8 @@
+package tasks;
+
+import ui.Ui;
+import static ui.Messages.*;
+
 public class Task {
     protected String description;
     protected boolean isMarked;
@@ -31,33 +36,26 @@ public class Task {
      * Prints out a message when the user adds a task to the task list
      */
     public void taskMessage() {
-        System.out.println("____________________________________________________________\n"
-                + "\n"
-                + "added: " + description
-                + "\n");
+        defaultAddMessage();
+        System.out.println("added: " + description + "\n");
     }
 
     /**
      * Prints out a message when the user removes a task from the task list
      */
     public void deleteMessage(){
-        System.out.println("____________________________________________________________\n"
-                + "\n"
-                + "Noted. I've removed this task:"
-                + "\n"
-                + this);
+        defaultDeleteMessage();
+        System.out.println("\n" + this);
     }
 
     /**
      * Sets the task to Marked and prints out a message saying that the task has been marked
      */
     public void setMarked() {
+        markMessage();
         isMarked = true;
-        System.out.println("____________________________________________________________\n"
-                + "Nice! I've marked this task as done:\n"
-                + this
-                + "\n"
-                + "____________________________________________________________\n");
+        System.out.println(this + "\n");
+        Ui.border();
     }
 
     /**
@@ -65,11 +63,9 @@ public class Task {
      */
     public void setUnmarked() {
         isMarked = false;
-        System.out.println("____________________________________________________________\n"
-                + "Ok, I've marked this task as not done yet:\n"
-                + this
-                + "\n"
-                + "____________________________________________________________\n");
+        unmarkMessage();
+        System.out.println(this + "\n");
+        Ui.border();
     }
 
 }

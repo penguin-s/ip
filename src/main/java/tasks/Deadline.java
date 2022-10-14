@@ -1,3 +1,7 @@
+package tasks;
+
+import static ui.Messages.addMessage;
+
 public class Deadline extends Task {
 
     protected String by;
@@ -17,9 +21,7 @@ public class Deadline extends Task {
      */
     @Override
     public void taskMessage() {
-        System.out.println("____________________________________________________________\n"
-                + "Got it. I've added this task:"
-                + "\n"
-                + this);
+        addMessage();
+        System.out.println("\n" + this);
     }
 }
