@@ -1,4 +1,7 @@
 package commands;
 
-public class CommandUnmark {
+public class CommandUnmark extends Command{
+    public void execute(){
+
+    }
 }

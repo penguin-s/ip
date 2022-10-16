@@ -1,4 +1,7 @@
 package commands;
 
-public class CommandDeadline {
+public class CommandDeadline extends Command{
+    public void execute(){
+
+    }
 }

@@ -1,7 +1,5 @@
 package commands;
 
-import ui.Console;
-
 import static ui.Messages.helpMessage;
 
 public class CommandHelp extends Command {

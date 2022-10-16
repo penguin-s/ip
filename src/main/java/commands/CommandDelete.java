@@ -1,4 +1,7 @@
 package commands;
 
-public class CommandDelete {
+public class CommandDelete extends Command{
+    public void execute(){
+
+    }
 }

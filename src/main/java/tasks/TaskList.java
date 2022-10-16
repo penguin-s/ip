@@ -6,27 +6,25 @@ import exceptions.DukeException;
 import ui.Ui;
 
 public class TaskList {
+    public final ArrayList<Task> tasks = new ArrayList<>();
+    public final int taskCount;
 
-    /**
-     * Prints out tasks in the task list in numbered sequence
-     * @param taskList
-     */
-    public static void listTasks(ArrayList<Task> taskList) {
-        if (!taskList.isEmpty()) {
-            for (int i = 0; i < taskList.size(); i++) {
-                System.out.println((i + 1) + ". " + taskList.get(i).toString());
-            }
-            Ui.border();
-        } else {
-            DukeException.noTasksInList();
-        }
+    public TaskList() {
+        this.taskCount = tasks.size();
     }
+
+    public void addTask(Task task, Tasklist taskList){
+        taskList.add(task);
+    }
+
     /**
      * Counts the number of tasks in the given task list and prints it out
      * @param taskList
      */
-    public static void taskCount(ArrayList<Task> taskList) {
-        System.out.println("Now you have " + taskList.size() + " tasks in the list.");
+    public void countTasks() {
+        System.out.println("Now you have " );
+        System.out.println(taskCount);
+        System.out.println(" tasks in the list.");
         Ui.border();
     }
 }

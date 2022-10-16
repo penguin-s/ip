@@ -1,6 +1,10 @@
 package ui;
 
 import exceptions.DukeException;
+import tasks.Task;
+import tasks.Todo;
+import tasks.Deadline;
+import tasks.Event;
 
 import java.util.Objects;
 
@@ -42,18 +46,25 @@ public class Parser {
         }
         // If the first token is not a task command
         for(String command : numberCommands){
-            if(Objects.equals(this.name, command)){
+            assert this.name != null;
+            if(this.name.equals(command)){
                 this.taskNumber = Integer.parseInt(splitString[1]) - 1;
+            } else {
+                DukeException.unknownCommand();
             }
         }
     }
+
+    public Task toTask(){
+        if(taskType.equals("deadline")){
+            return new Deadline(this.name, this.dateTime);
+        }
+        else if(taskType.equals("event")){
+            return new Event(this.name, this.dateTime);
+        }
+        else{
+            return new Todo(this.name);
+        }
+    }
 }
-
-
-    /**
-     * Extracts task from number in task list
-     * @param readInput
-     * @param taskList
-     * @return tasks.Task task
-     */
 

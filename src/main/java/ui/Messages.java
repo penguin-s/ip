@@ -17,13 +17,11 @@ public class Messages {
     public static void helpMessage(){
         Ui.border();
         System.out.println("Here is a list of all available commands:\n");
-        Ui.border();
     }
 
     public static void listMessage(){
         Ui.border();
         System.out.println("Here are the tasks in your list:\n");
-        Ui.border();
     }
 
     public static void defaultAddMessage(){
