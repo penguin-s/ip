@@ -106,6 +106,7 @@ public class Duke {
                             + "Bye. Hope to see you again soon!\n"
                             + border);
                     isExit = true;
+                    System.exit(0);
                     break;
                 case "list":
                     if (!taskList.isEmpty()) {
