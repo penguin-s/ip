@@ -12,7 +12,7 @@ Ensure you have JDK 11 installed on your device.
 
 `todo [task]`: Adds a task to the list.
 
-`mark`: Marks a task as done.
+`mark [task number]`: Marks a task as done.
 
 `delete [task number]`: Removes a task from the list.
 
@@ -148,7 +148,7 @@ ____________________________________________________________
 
 ### `save`
 
-Saves the task list to a file.
+Saves the task list to a file called Duke.txt from the data folder.
 
 Example:
 
@@ -159,7 +159,7 @@ Expected output:
 ```
 ____________________________________________________________
 
-Your tasks have been saved.
+Your tasks have been saved successfully.
 ____________________________________________________________
 ```
 

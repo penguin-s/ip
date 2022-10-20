@@ -1,3 +1,10 @@
+package tasks;
+
+import static ui.Messages.addMessage;
+
+/**
+ * Stores the Todo class, its attributes and methods.
+ */
 public class Todo extends Task {
 
     public Todo(String description) {
@@ -14,10 +21,8 @@ public class Todo extends Task {
      */
     @Override
     public void taskMessage() {
-        System.out.println("____________________________________________________________\n"
-                + "Got it. I've added this task:"
-                + "\n"
-                + this);
+        addMessage();
+        System.out.println("\n" + this);
     }
 }
 
