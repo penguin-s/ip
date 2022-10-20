@@ -2,6 +2,9 @@ package tasks;
 
 import static ui.Messages.addMessage;
 
+/**
+ * Stores the Deadline class, its attributes and methods.
+ */
 public class Deadline extends Task {
 
     protected String by;

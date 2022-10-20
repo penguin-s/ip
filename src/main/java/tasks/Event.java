@@ -2,6 +2,9 @@ package tasks;
 
 import static ui.Messages.addMessage;
 
+/**
+ * Stores the Event class, its attributes and methods.
+ */
 public class Event extends Task {
 
     protected String at;

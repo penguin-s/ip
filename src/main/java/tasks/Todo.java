@@ -2,6 +2,9 @@ package tasks;
 
 import static ui.Messages.addMessage;
 
+/**
+ * Stores the Todo class, its attributes and methods.
+ */
 public class Todo extends Task {
 
     public Todo(String description) {

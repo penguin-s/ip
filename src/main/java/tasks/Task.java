@@ -1,8 +1,12 @@
 package tasks;
 
 import ui.Ui;
+
 import static ui.Messages.*;
 
+/**
+ * Stores the Task class, its attributes and methods.
+ */
 public class Task {
     protected String description;
     protected boolean isMarked;
